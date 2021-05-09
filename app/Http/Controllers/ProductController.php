@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ProductController extends Controller
 {
@@ -33,9 +34,20 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Product $product)
     {
-        //
+        $cart = Cart::instance('main');
+        $cart->add(
+            $product->getKey(),
+            $product->name,
+            1,
+            $product->cost,
+        )->associate(Product::class);
+
+        $data['cost'] = str_replace(',', '', $cart->subtotal());
+        $data['cart'] = $cart->content();
+
+        return json_encode($data);
     }
 
     /**
@@ -80,7 +92,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $cart = Cart::instance('main');
+        $cart->destroy();
     }
 
     public function getProducts(){

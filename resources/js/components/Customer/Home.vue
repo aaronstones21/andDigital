@@ -1,56 +1,85 @@
 <template>
+
     <div>
-        <div v-for="product in this.products">
-            <div class="container bootdey">
-                <div class="col-md-9">
+        <div class="animation-container">
+            <div v-if="this.loading === true">
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+        <div style="position: sticky;">
+            <nav class="navbar navbar-light bg-light justify-content-between">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <a href="#" role="button" aria-expanded="false"> <span class="fa fa-gift bigicon"></span> {{this.count}} Items in Cart<span class="caret"></span></a>
+                <a @click.prevent="emptyBasket({})" role="button" aria-expanded="false">Empty Cart</a>
+                <p aria-expanded="false">£{{this.cost}}</p>
+            </nav>
+        </div>
+    <div class="row">
+                <div class="container bootdey">
+                    <div>
 
-                    <div class="row product-list">
-                        <div class="col-md-4">
-                            <section class="panel">
-                                <div class="pro-img-box">
-                                    <img :src="product.file_path" alt="image" />
-                                    <a href="#" class="adtocart">
-                                        <i class="fa fa-shopping-cart" style="font-size:36px"></i>
-                                    </a>
-                                </div>
-
-                                <div class="panel-body text-center">
-                                    <h4>
-                                        <a href="#" class="pro-title">
-                                            {{product.name}}
+                        <div class="row product-list">
+                            <div v-for='product in this.products' class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img :src="product.file_path" alt="image" />
+                                        <a role="button" @click.prevent="increment({product:product})" class="adtocart">
+                                            <i class="fa fa-shopping-cart" style="font-size:36px"></i>
                                         </a>
-                                    </h4>
-                                    <p class="price">$300.00</p>
-                                    <h4 class="pro-title">{{ product.description }}</h4>
-                                </div>
-                            </section>
+                                    </div>
+
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <a href="#" class="pro-title">
+                                                {{product.name}}
+                                            </a>
+                                        </h4>
+                                        <p class="price">${{ product.cost }}</p>
+                                        <h4 class="pro-title">{{ product.description }}</h4>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
+
 
 </template>
 
 <script>
+import store from './src/store';
+import { mapActions, mapState } from 'vuex'
+import Vuex from 'vuex'
+import Vue from "vue";
+
+Vue.use(Vuex)
 
 
 
 export default {
-    data(){
-        return {
-            products:[]
-        }
-    },
+
+    methods:mapActions(['increment', 'initialise', 'emptyBasket']),
+
+    computed:mapState({
+
+        products: state => state.products,
+        cart: state => state.cart,
+        cost: state => state.cost,
+        count: state => state.count,
+        loading: state => state.loading,
+
+    }),
+
     mounted(){
-        axios.get('/api/products/get').then((response) => {
-            this.products = response.data
-            console.log(this.products)
-        })
-            .catch((error) =>{
-                this.errors = error.response.data.errors
-            })
+
+        this.initialise({})
+
     }
 }
 </script>
@@ -216,5 +245,86 @@ body{margin-top:20px;
 .pro-d-head {
     font-size: 18px;
     font-weight: 300;
+}
+
+img{
+    height: 15em;
+    width: 4em;
+}
+
+.animation-container{
+    text-align: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #0075FEFF;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+.row {
+    max-width:140em;
+    margin:auto;
+}
+
+.position-modifier{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
 }
 </style>

@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('gender');
             $table->string('description');
             $table->integer('quantity');
+            $table->double('cost');
             $table->timestamps();
         });
     }
