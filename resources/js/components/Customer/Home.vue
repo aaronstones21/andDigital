@@ -12,8 +12,8 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
-                <a href="#" role="button" aria-expanded="false"> <span class="fa fa-gift bigicon"></span> {{this.count}} Items in Cart<span class="caret"></span></a>
-                <a @click.prevent="emptyBasket({})" role="button" aria-expanded="false">Empty Cart</a>
+                <router-link to="/order"> <a href="#" role="button" aria-expanded="false"> <span class="fa fa-gift bigicon"></span> {{this.count}} Items in Cart<span class="caret"></span></a></router-link>
+                <button type='button' class="btn btn-info" @click.prevent="emptyBasket({})" role="button" aria-expanded="false">Empty Cart</button>
                 <p aria-expanded="false">£{{this.cost}}</p>
             </nav>
         </div>

@@ -7,43 +7,18 @@ use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function store($price, $count, $email)
     {
-        //
+        $data['price'] = $price;
+        $data['count'] = $count;
+        $data['email'] = $email;
+
+        return json_encode($data);
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Orders  $orders
-     * @return \Illuminate\Http\Response
-     */
     public function show(Orders $orders)
     {
         //

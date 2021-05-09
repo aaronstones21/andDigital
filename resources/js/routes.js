@@ -1,6 +1,6 @@
 import Home from './components/Customer/Home';
 import About from './components/Customer/About';
-import cart from './components/Customer/Cart';
+import order from './components/Customer/Order';
 import notFound from './components/notFound';
 import login from './components/Authentication/Login';
 import register from './components/Authentication/Register';
@@ -30,9 +30,9 @@ export default{
         name: 'Login'
     },
         {
-            path: '/cart',
-            component: cart,
-            name: 'Cart'
+            path: '/order',
+            component: order,
+            name: 'Order'
         },
     {
         path: '/register',

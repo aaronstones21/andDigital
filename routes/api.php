@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,6 @@ Route::post('logout', [LoginController::class, 'logout']);
 Route::get('products/get', [ProductController::class, 'getProducts']);
 Route::post('products/add/{product}', [ProductController::class, 'store']);
 Route::delete('products/empty', [ProductController::class, 'destroy']);
+
+
+Route::post('orders/create/{price}/{count}/{email}', [OrdersController::class, 'store']);

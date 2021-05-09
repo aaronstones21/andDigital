@@ -6,7 +6,6 @@ Vue.use(Vuex)
 const state = {
     count: 0,
     cost: 0,
-    cart: undefined,
     products:undefined,
     loading: false,
     completed: false,
@@ -24,14 +23,13 @@ const mutations = {
         axios.post('/api/products/add/' + payload.product.id).then((response) => {
 
             state.count = state.count + 1
-            state.cost = response.data.cost
-
+            state.cost += parseFloat(response.data.cost)
             state.loading = false
 
 
         })
             .catch((error) =>{
-                this.errors = error.response.data.errors
+                console.log(error)
             })
 
     },
@@ -49,7 +47,7 @@ const mutations = {
 
         })
             .catch((error) =>{
-                this.errors = error.response.data.errors
+                console.log(error)
             })
     },
 
@@ -69,7 +67,16 @@ const mutations = {
 
         })
             .catch((error) =>{
-                this.errors = error.response.data.errors
+                console.log(error)
+            })
+    },
+
+    confirmOrder(state, payload){
+        axios.post('api/orders/create/' + state.cost + '/' + state.count + ' /' + payload.email + '').then((response) => {
+            console.log(response.data)
+        })
+            .catch((error) => {
+                console.log(error)
             })
     },
 
@@ -80,6 +87,7 @@ const actions = {
     increment: ({ commit }, payload) => commit('increment', payload),
     initialise: ({ commit }, payload) => commit('initialise', payload),
     emptyBasket: ({ commit }, payload) => commit('emptyCart', payload),
+    confirmOrder: ({ commit }, payload) => commit('confirmOrder', payload),
 
 }
 
