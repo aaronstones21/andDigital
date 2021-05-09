@@ -10,19 +10,20 @@ class OrdersController extends Controller
 
     public function store($price, $count, $email)
     {
-        $data['price'] = $price;
-        $data['count'] = $count;
-        $data['email'] = $email;
 
-        return json_encode($data);
+        $order = new Orders;
+
+        $order->cost = $price;
+        $order->count = $count;
+        $order->email = $email;
+
+        $order->save();
+
+
+        return json_encode('new order created');
 
     }
 
-
-    public function show(Orders $orders)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

@@ -15,8 +15,8 @@
                         <td>{{ this.count }}</td>
                     </tr>
                 </table>
-                <input @keypress="emailCheck" type="email" name="email">
-                <button @click.prevent="confirmOrder({email:email})" v-if="check === true" type="button" class="btn btn-success">Confirm Order</button>
+                <input @change="emailCheck" type="email" name="email" v-model="email">
+                <button @click.prevent="confirmOrder({email:email})"  v-if="this.check === true" type="button" class="btn btn-success">Confirm Order</button>
             </div>
 
             <div v-else>
@@ -55,25 +55,21 @@ export default {
     },
 
     methods:{
+        ...mapActions(['confirmOrder']),
+
         emailCheck(event){
+            let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            console.log('here')
+            if(event.target.value.match(mailformat))
+            {
 
-            console.log(event.target.value)
-
-            this.email = event.target.value;
-
-            let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-            if (this.email.match(validRegex)) {
-
-                this.check = true
-
-            } else {
-
-                this.check = false
-
+                this.check =  true;
             }
-        },
-        ...mapActions(['confirmOrder'])
+            else
+            {
+                this.check =  false;
+            }
+        }
     }
 }
 </script>

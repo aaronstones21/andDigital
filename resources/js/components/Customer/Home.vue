@@ -38,7 +38,6 @@
                                             </a>
                                         </h4>
                                         <p class="price">${{ product.cost }}</p>
-                                        <h4 class="pro-title">{{ product.description }}</h4>
                                     </div>
                                 </section>
                             </div>
