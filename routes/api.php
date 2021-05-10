@@ -34,4 +34,4 @@ Route::post('products/add/{product}', [ProductController::class, 'store']);
 Route::delete('products/empty', [ProductController::class, 'destroy']);
 
 
-Route::post('orders/create/{price}/{count}/{email}', [OrdersController::class, 'store']);
+Route::post('orders/create/{price}', [OrdersController::class, 'store']);

@@ -1,6 +1,7 @@
 import Home from './components/Customer/Home';
 import About from './components/Customer/About';
 import order from './components/Customer/Order';
+import adminOrder from './components/Admin/Order';
 import notFound from './components/notFound';
 import login from './components/Authentication/Login';
 import register from './components/Authentication/Register';
@@ -42,6 +43,32 @@ export default{
         {
             path: "/dashboard",
             name: "Dashboard",
+            component: dashboard,
+            beforeEnter: (to, form, next) =>{
+                axios.get('/api/athenticated').then(()=>{
+                    next()
+                }).catch(()=>{
+                    return next({ name: 'Login'})
+                })
+            }
+        },
+
+        {
+            path: "/admin/order",
+            name: "adminOrder",
+            component: adminOrder,
+            beforeEnter: (to, form, next) =>{
+                axios.get('/api/athenticated').then(()=>{
+                    next()
+                }).catch(()=>{
+                    return next({ name: 'Login'})
+                })
+            }
+        },
+
+        {
+            path: "/admin/products",
+            name: "Products",
             component: dashboard,
             beforeEnter: (to, form, next) =>{
                 axios.get('/api/athenticated').then(()=>{

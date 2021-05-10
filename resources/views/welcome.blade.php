@@ -3,10 +3,10 @@
 @section('content')
     <template>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <nav class="navbar navbar-light bg-light">
-                <router-link class="navbar-brand" to="/">
-                    <img src="{{asset('logo.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <nav class="navbar navbar-light">
+                <router-link class="navbar-brand text-light" to="/">
+                    <img src="{{asset('logo.png')}}" width="30" height="30" class="d-inline-block align-top " alt="">
                     Global Shoe
                 </router-link>
             </nav>
@@ -14,16 +14,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <router-link class="nav-link" to="/" exact>Home <span class="sr-only">(current)</span></router-link>
+                        <router-link class="nav-link text-light" to="/" exact>Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/about">About</router-link>
+                        <router-link class="nav-link text-light" to="/about">About</router-link>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Login
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -38,6 +38,5 @@
             <router-view></router-view>
         </div>
     </template>
-
 
 @endsection

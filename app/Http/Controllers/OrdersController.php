@@ -3,19 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\Orders;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
 
-    public function store($price, $count, $email)
+    public function store($products)
     {
+        $quantityCheck = false;
+        $products = json_decode($products);
+        $products->order = str_split($products->order);
+
+        for($x =0; $x < sizeof($products->order); $x++){
+            if($products->order[$x] > 0){
+                $product = Product::find($products->order[$x]);
+                $product->quantity--;
+                if($product->quantity < 0){
+                    $quantityCheck = true;
+                }
+            }
+            if($quantityCheck == true){
+                return 'Sorry we can not fulfil that order';
+            }
+            $product->save();
+        }
 
         $order = new Orders;
 
-        $order->cost = $price;
-        $order->count = $count;
-        $order->email = $email;
+        $order->cost = $products->cost;
+        $order->count = $products->count;
+        $order->email = $products->email;
 
         $order->save();
 
