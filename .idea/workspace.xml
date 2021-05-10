@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f0f9be8-10c4-4d04-abc8-a97b4b8a4e04" name="Default Changelist" comment="User side completed, using vue, vuex, axios and laravel">
+    <list default="true" id="6f0f9be8-10c4-4d04-abc8-a97b4b8a4e04" name="Default Changelist" comment="implement the basic administrative system, to check stock and products">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Admin/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Admin/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Admin/Order.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Admin/Products.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Authentication/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Authentication/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Authentication/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Authentication/src/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Customer/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Customer/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Customer/Order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Customer/Order.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +207,7 @@
       <workItem from="1620384984358" duration="2584000" />
       <workItem from="1620457234735" duration="25721000" />
       <workItem from="1620567087324" duration="11072000" />
-      <workItem from="1620633000030" duration="5806000" />
+      <workItem from="1620633000030" duration="6448000" />
     </task>
     <task id="LOCAL-00001" summary="add files to git repo">
       <created>1620491875169</created>
@@ -251,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620634605393</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implement the basic administrative system, to check stock and products">
+      <created>1620639654861</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620639654861</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +268,7 @@
     <MESSAGE value="finsihed the designs for the order page" />
     <MESSAGE value="backend completed for the orders page" />
     <MESSAGE value="User side completed, using vue, vuex, axios and laravel" />
-    <option name="LAST_COMMIT_MESSAGE" value="User side completed, using vue, vuex, axios and laravel" />
+    <MESSAGE value="implement the basic administrative system, to check stock and products" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement the basic administrative system, to check stock and products" />
   </component>
 </project>

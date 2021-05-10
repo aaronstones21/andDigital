@@ -37,7 +37,7 @@
                                                 {{product.name}}
                                             </a>
                                         </h4>
-                                        <p class="price">${{ product.cost }}</p>
+                                        <p class="price">£{{ product.cost }}</p>
                                     </div>
                                 </section>
                             </div>
