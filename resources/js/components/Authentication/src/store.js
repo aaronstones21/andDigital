@@ -7,48 +7,27 @@ Vue.use(Vuex)
 
 
 
-const state = {
+const authState = {
+
+    email: '',
 
 }
 
-const mutations = {
+const authMutations = {
     increment (state, payload) {
 
-        component.$apiClient('api')
-            .post(endpoint)
-            .then((response) =>{
-
-                state.count = response.data.count
-                state.rewards += Number(payload.counter * payload.product.rewards)
-                state.cost = Number(response.data.cost)
-                state.cart = response.data.cart
-
-                this.commit('contains', {})
-
-                state.loading = false
-
-            })
-            .catch((error) => {
-                console.log(error.response);
-                state.loading = false
-            });
-
     },
-    decrement (state, payload) {
-        console.log('we are here')        
-    },        
-    
+
 }
 
-const actions = {
+const authActions = {
     increment: ({ commit }, payload) => commit('increment', payload),
-    decrement: ({ commit }, payload) => commit('decrement', payload),
 
 
 }
 
 export default new Vuex.Store({
-    state,
-    mutations,
-    actions
+    authState,
+    authMutations,
+    authActions
 })

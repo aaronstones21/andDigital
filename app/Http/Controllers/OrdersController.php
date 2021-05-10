@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 class OrdersController extends Controller
 {
 
+    public function show(){
+
+        $orders = Orders::all();
+
+        return json_encode($orders);
+
+    }
+
     public function store($products)
     {
         $quantityCheck = false;

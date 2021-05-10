@@ -50,23 +50,6 @@ class ProductController extends Controller
         return json_encode($data);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product)
     {
         //
@@ -96,7 +79,7 @@ class ProductController extends Controller
         $cart->destroy();
     }
 
-    public function getProducts(){
+    public function show(){
 
         $products = Product::all();
         return json_encode($products);

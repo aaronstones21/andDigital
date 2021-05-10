@@ -22,8 +22,8 @@
                     <div>
 
                         <div class="row product-list">
-                            <div v-for='product in this.products' class="col-md-4">
-                                <section class="panel" v-if="product.quantity > 0">
+                            <div v-for='product in this.products' class="col-md-4" v-if="product.quantity > 0">
+                                <section class="panel">
                                     <div class="pro-img-box">
                                         <img :src="product.file_path" alt="image" />
                                         <a role="button" @click.prevent="increment({product:product})" class="adtocart">

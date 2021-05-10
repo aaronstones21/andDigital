@@ -29,9 +29,11 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
-Route::get('products/get', [ProductController::class, 'getProducts']);
 Route::post('products/add/{product}', [ProductController::class, 'store']);
 Route::delete('products/empty', [ProductController::class, 'destroy']);
 
 
 Route::post('orders/create/{price}', [OrdersController::class, 'store']);
+
+Route::get('orders/get', [OrdersController::class, 'show']);
+Route::get('products/get', [ProductController::class, 'show']);

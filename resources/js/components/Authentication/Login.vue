@@ -22,7 +22,12 @@
 </template>
 
 <script>
+import authStore from './src/store';
+import { mapActions, mapState } from 'vuex'
+import Vuex from 'vuex'
+import Vue from "vue";
 
+Vue.use(Vuex)
 export default {
     data(){
         return {
@@ -38,7 +43,7 @@ export default {
         login(){
             axios.post('/api/login', this.form).then((response) => {
                 console.log(response)
-                this.$router.push({name:"Dashboard"})
+                this.$router.push('/admin/dashboard')
             })
             .catch((error) =>{
                 this.errors = error.response.data.errors

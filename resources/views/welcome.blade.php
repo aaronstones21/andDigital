@@ -3,7 +3,7 @@
 @section('content')
     <template>
 
-        <nav class="navbar navbar-expand-lg navbar-light ">
+        <nav class="navbar navbar-expand-lg navbar-light" style="position: sticky; z-index: 3;">
             <nav class="navbar navbar-light">
                 <router-link class="navbar-brand text-light" to="/">
                     <img src="{{asset('logo.png')}}" width="30" height="30" class="d-inline-block align-top " alt="">
