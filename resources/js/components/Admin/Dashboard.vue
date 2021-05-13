@@ -1,8 +1,5 @@
 <template>
     <div>
-        <p @click="logout">logout</p>
-        Name: Test Account <br>
-        Email: test@test.com <br>
         <div class="container">
             <div class="row">
                 <div class="col">

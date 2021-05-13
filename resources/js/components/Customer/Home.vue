@@ -17,7 +17,7 @@
                 <p aria-expanded="false">£{{this.cost}}</p>
             </nav>
         </div>
-    <div class="row">
+        <div class="row">
                 <div class="container bootdey">
                     <div>
 
@@ -25,7 +25,7 @@
                             <div v-for='product in this.products' class="col-md-4" v-if="product.quantity > 0">
                                 <section class="panel">
                                     <div class="pro-img-box">
-                                        <img :src="product.file_path" alt="image" />
+                                        <img role='button' @click.prevent="showModal(product)" :src="product.file_path" alt="image" />
                                         <a role="button" @click.prevent="increment({product:product})" class="adtocart">
                                             <i class="fa fa-shopping-cart" style="font-size:36px"></i>
                                         </a>
@@ -46,16 +46,23 @@
                 </div>
             </div>
 
-        </div>
+        <Modal
+            v-show="isModalVisible"
+            @close="closeModal"
+            :product="product"
+
+        />
+
+    </div>
 
 
 </template>
 
 <script>
-import store from './src/store';
 import { mapActions, mapState } from 'vuex'
 import Vuex from 'vuex'
 import Vue from "vue";
+import Modal from '../Modal';
 
 Vue.use(Vuex)
 
@@ -63,7 +70,20 @@ Vue.use(Vuex)
 
 export default {
 
-    methods:mapActions(['increment', 'initialise', 'emptyBasket']),
+    methods:{
+        showModal:function(product) {
+            this.product = product
+            this.isModalVisible = true;
+        },
+        closeModal:function() {
+            this.isModalVisible = false;
+        },
+        ...mapActions(['increment', 'initialise', 'emptyBasket'])
+    },
+    components: {
+        Modal,
+    },
+
 
     computed:mapState({
 
@@ -74,6 +94,14 @@ export default {
         loading: state => state.loading,
 
     }),
+
+    data(){
+        return{
+            product: [],
+            isModalVisible: false,
+
+        }
+    },
 
     mounted(){
 

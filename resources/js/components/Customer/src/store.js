@@ -106,6 +106,8 @@ const mutations = {
     },
 
 
+
+
 }
 
 const actions = {
@@ -113,6 +115,8 @@ const actions = {
     initialise: ({ commit }, payload) => commit('initialise', payload),
     emptyBasket: ({ commit }, payload) => commit('emptyCart', payload),
     confirmOrder: ({ commit }, payload) => commit('confirmOrder', payload),
+    contains: ({ commit }, payload) => commit('contains', payload),
+    remove: ({ commit }, payload) => commit('remove', payload),
 
 }
 
