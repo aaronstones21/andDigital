@@ -55,6 +55,12 @@ class ProductController extends Controller
         //
     }
 
+    public function delete(Product $product)
+    {
+        $product->delete();
+        return json_encode('success');
+    }
+
     /**
      * Update the specified resource in storage.
      *

@@ -5,9 +5,12 @@
             <span class="vue-modal-close" @click="close">&times;</span>
             <div>
 
+
                 <label for="name">
                     Enter the name:
                 </label>
+                <input type="hidden" :value="product.id" id="id" ref="id">
+
                 <input class="form-control form-control-lg" @change="set" type="text" :value="product.name" id="name" ref="name">
 
                 <label for="file_path">
@@ -37,6 +40,7 @@
 
 
             </div>
+            <button @click.prevent="deleteProduct" type="button" class="btn btn-danger">Delete Product</button>
         </div>
     </div>
 </template>
@@ -65,7 +69,12 @@ export default {
             this.update({product:this.product})
 
         },
-        ...mapActions(['increment', 'update'])
+        deleteProduct:function() {
+
+            this.delete({product:this.$refs.id.value})
+
+        },
+        ...mapActions(['increment', 'update', 'delete'])
     },
 
 };

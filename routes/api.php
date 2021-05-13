@@ -40,3 +40,5 @@ Route::get('orders/get', [OrdersController::class, 'show']);
 Route::get('products/get', [ProductController::class, 'show']);
 
 Route::patch('products/update', [ProductController::class, 'update']);
+
+Route::delete('products/delete/{product}', [ProductController::class, 'delete']);

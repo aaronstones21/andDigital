@@ -70,9 +70,7 @@ export default {
         },
         ...mapActions(['increment'])
     },
-    mounted(){
-        console.log(this.product)
-    }
+
 };
 </script>
 

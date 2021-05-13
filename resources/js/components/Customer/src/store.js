@@ -112,6 +112,7 @@ const mutations = {
             state.loading = false
             if(response.data === 'success'){
                 state.success = true
+                this.commit('initialise', payload)
             }
             else {
                 state.error = true
@@ -120,7 +121,28 @@ const mutations = {
             .catch((error) =>{
                 console.log(error)
             })
-    }
+    },
+
+    delete(state, payload){
+        state.loading = true
+
+        axios.delete('/api/products/delete/' + payload.product).then((response) => {
+            state.loading= false
+            console.log(response.data)
+
+            if (response.data === 'success'){
+                state.success = true
+                this.commit('initialise', payload)
+
+            }
+            else {
+                state.error = true
+            }
+        })
+            .catch((error) => {
+                console.log(error)
+            })
+    },
 
 }
 
@@ -132,6 +154,7 @@ const actions = {
     contains: ({ commit }, payload) => commit('contains', payload),
     remove: ({ commit }, payload) => commit('remove', payload),
     update: ({ commit }, payload) => commit('update', payload),
+    delete: ({ commit }, payload) => commit('delete', payload),
 
 }
 

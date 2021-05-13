@@ -28,7 +28,7 @@
                     <div>
 
                         <div class="row product-list">
-                            <div v-for='product in this.products' class="col-md-4" v-if="product.quantity > 0">
+                            <div v-for='product in this.products' class="col-md-4" v-if="product.quantity > 0" >
                                 <section class="panel">
                                     <div class="pro-img-box">
                                         <img role='button' @click.prevent="showModal(product)" :src="product.file_path" alt="image" />
@@ -98,6 +98,8 @@ export default {
         cost: state => state.cost,
         count: state => state.count,
         loading: state => state.loading,
+        success: state => state.success,
+        error: state => state.error,
 
     }),
 

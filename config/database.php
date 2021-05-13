@@ -46,10 +46,10 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'andDigital'),
-            'username' => env('DB_USERNAME', 'global-shoe'),
+            'database' => env('DB_DATABASE', 'global-shoe'),
+            'username' => env('DB_USERNAME', 'globalShoe'),
             'password' => env('DB_PASSWORD', 'GlobalShoe'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',

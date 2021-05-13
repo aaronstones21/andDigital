@@ -1,0 +1,9 @@
+id,name,file_path,gender,description,quantity,cost,created_at,updated_at
+1,"Plain Gray Shoess",https://thumbs.dreamstime.com/b/sport-shoes-isolated-white-background-41616578.jpg,m,"a plain gray shoe for menss",12,22,NULL,"2021-05-14 10:53:51"
+2,"Mens Loafer",https://www.afarleycountryattire.co.uk/wp-content/uploads/2019/03/barker-shoes-mens-jevington-loafers-brown-suede.jpg,m,"a plain running shoe for men",4,30,NULL,"2021-05-12 10:40:07"
+3,"Womens High Heel",https://i2.wp.com/retractionwatch.com/wp-content/uploads/2019/10/1463336008.png,f,"a plain running shoe for women",6,40,NULL,"2021-05-12 10:15:50"
+4,"Mens Running Trainer",https://www.cnet.com/a/img/zNIwhc41T_hgCr0et385Cddy64A=/940x528/2020/09/14/fd065b54-e766-4d97-b45d-afebb149ea8e/brooks-ghost-13.jpg,m,"a plain running shoe for women",10,40,NULL,NULL
+5,"Womens Running Trainer",https://www.startfitness.co.uk/media/catalog/product/cache/bf007ed67a1dd49db67d26127afb5b11/a/s/asics-gel-ds-trainer-24-1012a158-700.jpg,f,"a plain running shoe for women",10,40,NULL,NULL
+6,"Flip Flops",https://images-na.ssl-images-amazon.com/images/I/71U5u85hxKL._AC_UX500_.jpg,f,"a plain running shoe for women",10,40,NULL,NULL
+7,"Childs Shoe",https://m.media-amazon.com/images/I/51c-Q9gwmLL._SL500_.jpg,f,"a plain running shoe for women",10,40,NULL,NULL
+8,"Mens Dress Shoes",https://handcmediastorage.blob.core.windows.net/productimages/OE/OEPLO110-A01-03-800px-1040px.jpg,m,"a plain running shoe for women",10,40,NULL,NULL
