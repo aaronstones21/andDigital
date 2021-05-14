@@ -62,9 +62,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request)
     {
-        //
+        $product = Product::find($request->id);
+        $product->fill($request->all())->save();
+        return json_encode('success');
     }
 
     /**

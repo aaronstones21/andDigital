@@ -36,4 +36,7 @@ Route::delete('products/empty', [ProductController::class, 'destroy']);
 Route::post('orders/create/{price}', [OrdersController::class, 'store']);
 
 Route::get('orders/get', [OrdersController::class, 'show']);
+
 Route::get('products/get', [ProductController::class, 'show']);
+
+Route::patch('products/update', [ProductController::class, 'update']);

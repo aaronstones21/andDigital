@@ -105,8 +105,22 @@ const mutations = {
             })
     },
 
+    update(state, payload){
+        state.loading = true
 
-
+        axios.patch('/api/products/update/' ,payload.product).then((response) => {
+            state.loading = false
+            if(response.data === 'success'){
+                state.success = true
+            }
+            else {
+                state.error = true
+            }
+        })
+            .catch((error) =>{
+                console.log(error)
+            })
+    }
 
 }
 
@@ -117,6 +131,7 @@ const actions = {
     confirmOrder: ({ commit }, payload) => commit('confirmOrder', payload),
     contains: ({ commit }, payload) => commit('contains', payload),
     remove: ({ commit }, payload) => commit('remove', payload),
+    update: ({ commit }, payload) => commit('update', payload),
 
 }
 

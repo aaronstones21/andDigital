@@ -27,7 +27,8 @@ export default{
     {
         path: '/login',
         component: login,
-        name: 'Login'
+        name: 'Login',
+
     },
         {
             path: '/order',
@@ -43,6 +44,13 @@ export default{
             path: "/admin/dashboard",
             name: "Dashboard",
             component: dashboard,
+            beforeEnter: (to, form, next) =>{
+                axios.get('/api/athenticated').then(()=>{
+                    next()
+                }).catch(()=>{
+                    return next({ name: 'Login'})
+                })
+            }
 
         },
 

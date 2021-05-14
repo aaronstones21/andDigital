@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="animation-container">
+            <div v-if="this.loading === true">
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -40,7 +45,7 @@
                                     <th>Quantity</th>
                                     <th>Cost</th>
                                 </tr>
-                                <tr v-for="item in this.products">
+                                <tr v-for="item in this.products" @click.prevent="showModal(item)">
                                     <td>{{ item.name }}</td>
                                     <td>{{ item.gender }}</td>
                                     <td>{{ item.quantity }}</td>
@@ -59,27 +64,50 @@
             </div>
         </div>
 
+        <Modal
+            v-show="isModalVisible"
+            @close="closeModal"
+            :product="product"
+
+        />
+
     </div>
 </template>
 
 <script>
 
+import {mapActions, mapState} from "vuex";
+import Modal from "./Modal";
+
 export default {
+
+    methods:{
+        showModal:function(product) {
+            this.product = product
+            this.isModalVisible = true;
+        },
+        closeModal:function() {
+            this.isModalVisible = false;
+        },
+        ...mapActions(['increment', 'initialise', 'emptyBasket'])
+    },
+    components: {
+        Modal,
+
+    },
+    computed:mapState({
+        loading: state => state.loading,
+        error: state => state.error,
+        success: state => state.success,
+    }),
+
     data(){
         return {
             user: [],
             products: [],
-            orders: []
-        }
-    },
-    methods: {
-        logout(){
-            axios.post('api/logout').then((response) =>{
-                this.$router.push({name:"Home"})
-            })
-                .catch((error) =>{
-                    console.log(error)
-                })
+            orders: [],
+            product: [],
+            isModalVisible: false,
         }
     },
     mounted() {
