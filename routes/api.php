@@ -42,3 +42,5 @@ Route::get('products/get', [ProductController::class, 'show']);
 Route::patch('products/update', [ProductController::class, 'update']);
 
 Route::delete('products/delete/{product}', [ProductController::class, 'delete']);
+
+Route::patch('products/create', [ProductController::class, 'create']);

@@ -32,6 +32,8 @@ const mutations = {
 
         })
             .catch((error) =>{
+                state.loading= false
+
                 console.log(error)
             })
 
@@ -50,6 +52,8 @@ const mutations = {
 
         })
             .catch((error) =>{
+                state.loading= false
+
                 console.log(error)
             })
     },
@@ -70,6 +74,8 @@ const mutations = {
 
         })
             .catch((error) =>{
+                state.loading= false
+
                 console.log(error)
             })
     },
@@ -101,6 +107,8 @@ const mutations = {
 
         })
             .catch((error) => {
+                state.loading= false
+
                 console.log(error)
             })
     },
@@ -110,15 +118,18 @@ const mutations = {
 
         axios.patch('/api/products/update/' ,payload.product).then((response) => {
             state.loading = false
-            if(response.data === 'success'){
+            /*if(response.data === 'success'){
                 state.success = true
                 this.commit('initialise', payload)
             }
             else {
                 state.error = true
-            }
+            }*/
+            console.log(response.data)
         })
             .catch((error) =>{
+                state.loading= false
+
                 console.log(error)
             })
     },
@@ -128,7 +139,6 @@ const mutations = {
 
         axios.delete('/api/products/delete/' + payload.product).then((response) => {
             state.loading= false
-            console.log(response.data)
 
             if (response.data === 'success'){
                 state.success = true
@@ -140,8 +150,42 @@ const mutations = {
             }
         })
             .catch((error) => {
+                state.loading= false
+
                 console.log(error)
             })
+    },
+    create(state, payload){
+
+
+
+        state.loading = true
+
+        axios.patch('/api/products/create', {name:payload.product.name,
+            description:payload.product.description,
+            file_path:payload.product.file_path,
+            gender:payload.product.gender,
+            quantity:payload.product.quantity,
+            cost:payload.product.cost
+        }).then((response) => {
+            state.loading= false
+
+            if (response.data === 'success'){
+                state.success = true
+                this.commit('initialise', payload)
+
+            }
+            else {
+                state.error = true
+            }
+
+        })
+            .catch((error) => {
+                state.loading= false
+
+                console.log(error)
+            })
+
     },
 
 }
@@ -155,6 +199,7 @@ const actions = {
     remove: ({ commit }, payload) => commit('remove', payload),
     update: ({ commit }, payload) => commit('update', payload),
     delete: ({ commit }, payload) => commit('delete', payload),
+    create: ({ commit }, payload) => commit('create', payload),
 
 }
 

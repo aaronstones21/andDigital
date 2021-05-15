@@ -23,9 +23,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $product = Product::create($request->all());
+        $product->save();
+
+        return json_encode('success');
     }
 
     /**
@@ -50,7 +53,7 @@ class ProductController extends Controller
         return json_encode($data);
     }
 
-    public function edit(Product $product)
+    public function edit(Request $request)
     {
         //
     }
@@ -70,6 +73,9 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
+
+        return $request->all();
+
         $product = Product::find($request->id);
         $product->fill($request->all())->save();
         return json_encode('success');

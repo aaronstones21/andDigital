@@ -15,7 +15,7 @@
                 <input type="email" placeholder="Email" v-model="form.email" class="fadeIn Third">
                 <input type="password" placeholder="Password" v-model="form.password" name='password' class="fadeIn fourth">
                 <input type="password" placeholder="Confirm Password" v-model="form.confirm_password" name='password_confirmation' class="fadeIn fifth">
-                <input @click.prevent="register" type='submit'  class="fadeIn sixth" value="Log In">
+                <input @click.prevent="register" type='submit'  class="fadeIn sixth" value="Register">
             </form>
 
 

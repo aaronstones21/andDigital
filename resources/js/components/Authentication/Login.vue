@@ -42,7 +42,6 @@ export default {
     methods:{
         login(){
             axios.post('/api/login', this.form).then((response) => {
-                console.log(response)
                 this.$router.push('/admin/dashboard')
             })
             .catch((error) =>{

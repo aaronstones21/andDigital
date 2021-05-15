@@ -60,6 +60,8 @@
                             </div>
                         </div>
                     </div>
+                    <button @click.prevent="showModal(null)" class="btn btn-danger">Create Product</button>
+
                 </div>
             </div>
         </div>
@@ -71,6 +73,12 @@
 
         />
 
+        <ProductModal
+            v-show="isProductModalVisible"
+            @close="closeModal"
+        />
+
+
     </div>
 </template>
 
@@ -78,21 +86,29 @@
 
 import {mapActions, mapState} from "vuex";
 import Modal from "./Modal";
+import ProductModal from "./ProductModal";
 
 export default {
 
     methods:{
         showModal:function(product) {
             this.product = product
-            this.isModalVisible = true;
+            if (this.product === null){
+                this.isProductModalVisible = true;
+            }
+            else{
+                this.isModalVisible = true;
+            }
         },
         closeModal:function() {
             this.isModalVisible = false;
+            this.isProductModalVisible = false;
         },
         ...mapActions(['increment', 'initialise', 'emptyBasket'])
     },
     components: {
         Modal,
+        ProductModal
 
     },
     computed:mapState({
@@ -108,6 +124,8 @@ export default {
             orders: [],
             product: [],
             isModalVisible: false,
+            isProductModalVisible: false,
+            newProduct: false
         }
     },
     mounted() {

@@ -14,10 +14,9 @@
         </div>
         <div style="position: sticky;">
             <nav class="navbar navbar-light bg-light justify-content-between">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <div class="search-wrapper">
+                    <input type="text" v-model="search" placeholder="Search title.."/>
+                </div>
                 <router-link to="/order"> <a href="#" role="button" aria-expanded="false"> <span class="fa fa-gift bigicon"></span> {{this.count}} Items in Cart<span class="caret"></span></a></router-link>
                 <button type='button' class="btn btn-info" @click.prevent="emptyBasket({})" role="button" aria-expanded="false">Empty Cart</button>
                 <p aria-expanded="false">£{{this.cost}}</p>
@@ -28,7 +27,7 @@
                     <div>
 
                         <div class="row product-list">
-                            <div v-for='product in this.products' class="col-md-4" v-if="product.quantity > 0" >
+                            <div v-for='product in filteredList' class="col-md-4" v-if="product.quantity > 0" >
                                 <section class="panel">
                                     <div class="pro-img-box">
                                         <img role='button' @click.prevent="showModal(product)" :src="product.file_path" alt="image" />
@@ -91,22 +90,33 @@ export default {
     },
 
 
-    computed:mapState({
 
-        products: state => state.products,
-        cart: state => state.cart,
-        cost: state => state.cost,
-        count: state => state.count,
-        loading: state => state.loading,
-        success: state => state.success,
-        error: state => state.error,
 
-    }),
+    computed: {
+        filteredList() {
+            return this.products.filter(products => {
+                return products.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+        },
+
+        ...mapState({
+
+            products: state => state.products,
+            cart: state => state.cart,
+            cost: state => state.cost,
+            count: state => state.count,
+            loading: state => state.loading,
+            success: state => state.success,
+            error: state => state.error,
+
+        })
+    },
 
     data(){
         return{
             product: [],
             isModalVisible: false,
+            search:''
 
         }
     },

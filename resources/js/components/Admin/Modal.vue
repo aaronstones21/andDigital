@@ -9,8 +9,7 @@
                 <label for="name">
                     Enter the name:
                 </label>
-                <input type="hidden" :value="product.id" id="id" ref="id">
-
+                    <input type="hidden" :value="product.id" id="id" ref="id">
                 <input class="form-control form-control-lg" @change="set" type="text" :value="product.name" id="name" ref="name">
 
                 <label for="file_path">
@@ -40,7 +39,7 @@
 
 
             </div>
-            <button @click.prevent="deleteProduct" type="button" class="btn btn-danger">Delete Product</button>
+                <button @click.prevent="deleteProduct" type="button" class="btn btn-danger">Delete Product</button>
         </div>
     </div>
 </template>
@@ -58,13 +57,14 @@ export default {
             this.$emit('close');
         },
         set:function() {
-
             this.product.name = this.$refs.name.value
             this.product.file_path = this.$refs.file_path.value
             this.product.gender = this.$refs.gender.value
             this.product.description = this.$refs.description.value
             this.product.quantity = this.$refs.quantity.value
             this.product.cost = this.$refs.cost.value
+
+
 
             this.update({product:this.product})
 
