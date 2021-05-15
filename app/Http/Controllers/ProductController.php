@@ -74,8 +74,6 @@ class ProductController extends Controller
     public function update(Request $request)
     {
 
-        return $request->all();
-
         $product = Product::find($request->id);
         $product->fill($request->all())->save();
         return json_encode('success');
