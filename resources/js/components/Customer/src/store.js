@@ -118,14 +118,13 @@ const mutations = {
 
         axios.patch('/api/products/update/' ,payload.product).then((response) => {
             state.loading = false
-            /*if(response.data === 'success'){
+            if(response.data === 'success'){
                 state.success = true
                 this.commit('initialise', payload)
             }
             else {
                 state.error = true
-            }*/
-            console.log(response.data)
+            }
         })
             .catch((error) =>{
                 state.loading= false
@@ -172,12 +171,14 @@ const mutations = {
 
             if (response.data === 'success'){
                 state.success = true
-                this.commit('initialise', payload)
 
             }
             else {
                 state.error = true
             }
+
+            this.commit('initialise', payload)
+
 
         })
             .catch((error) => {
