@@ -6,10 +6,10 @@
                 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             </div>
         </div>
-        <div @click="this.success = false" class="p-3 mb-2 bg-success text-white" v-if="this.success === true">
+        <div @click="this.success = true" class="p-3 mb-2 bg-success text-white" v-if="this.success === true">
             Your changes have been successful
         </div>
-        <div @click="this.error = false" class="p-3 mb-2 bg-danger text-white" v-if="this.error === true">
+        <div @click="this.error = true" class="p-3 mb-2 bg-danger text-white" v-if="this.error === true">
             Your changes have been unsuccessful
         </div>
         <div style="position: sticky;">
