@@ -1,0 +1,9 @@
+id,name,file_path,gender,description,quantity,cost,created_at,updated_at
+1,"Plain Gray Shoess",https://media.istockphoto.com/photos/canvas-shoe-picture-id1219019165,m,"a plain gray shoe for menss",12,22,NULL,"2021-05-14 10:53:51"
+2,"Mens Loafer",https://media.istockphoto.com/photos/leather-shoes-picture-id172710391,m,"a plain running shoe for men",4,30,NULL,"2021-05-12 10:40:07"
+3,"Womens High Heel",https://i2.wp.com/retractionwatch.com/wp-content/uploads/2019/10/1463336008.png,f,"a plain running shoe for women",6,40,NULL,"2021-05-12 10:15:50"
+4,"Mens Running Trainer",https://www.cnet.com/a/img/zNIwhc41T_hgCr0et385Cddy64A=/940x528/2020/09/14/fd065b54-e766-4d97-b45d-afebb149ea8e/brooks-ghost-13.jpg,m,"a plain running shoe for women",10,40,NULL,NULL
+5,"Womens Running Trainer",https://media.istockphoto.com/photos/sport-shoes-on-isolated-white-background-picture-id956501428,f,"a plain running shoe for women",10,40,NULL,NULL
+6,"Flip Flops",https://images-na.ssl-images-amazon.com/images/I/71U5u85hxKL._AC_UX500_.jpg,f,"a plain running shoe for women",10,40,NULL,NULL
+7,"Childs Shoe",https://images.freeimages.com/images/large-previews/43a/shoe-1418264.jpg,f,"a plain running shoe for women",10,40,NULL,NULL
+8,"Mens Dress Shoes",https://media.istockphoto.com/photos/elegant-black-leather-shoes-picture-id172417586,m,"a plain running shoe for women",10,40,NULL,NULL

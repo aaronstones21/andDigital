@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f0f9be8-10c4-4d04-abc8-a97b4b8a4e04" name="Default Changelist" comment="Created an ability to add new products, created functionality to search through shoes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-    </list>
+    <list default="true" id="6f0f9be8-10c4-4d04-abc8-a97b4b8a4e04" name="Default Changelist" comment="remove tests from update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,7 +216,7 @@
       <workItem from="1620981772824" duration="7336000" />
       <workItem from="1620919998514" duration="4455000" />
       <workItem from="1620932189387" duration="8994000" />
-      <workItem from="1621084079307" duration="1264000" />
+      <workItem from="1621084079307" duration="1921000" />
     </task>
     <task id="LOCAL-00001" summary="add files to git repo">
       <created>1620491875169</created>
@@ -284,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621077453258</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="remove tests from update">
+      <created>1621085948026</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1621085948026</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +317,7 @@
     <MESSAGE value="Add a new Modal product page" />
     <MESSAGE value="Add a delete functionality to admin modal" />
     <MESSAGE value="Created an ability to add new products, created functionality to search through shoes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created an ability to add new products, created functionality to search through shoes" />
+    <MESSAGE value="remove tests from update" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove tests from update" />
   </component>
 </project>
