@@ -26,7 +26,7 @@ const mutations = {
         axios.post('/api/products/add/' + payload.product.id).then((response) => {
             state.cart.push(payload.product.id)
             state.count = state.count + 1
-            state.cost += parseFloat(response.data.cost)
+            state.cost = parseFloat(response.data.cost)
             state.loading = false
 
 
